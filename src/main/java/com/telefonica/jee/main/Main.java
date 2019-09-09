@@ -31,7 +31,8 @@ public class Main {
 		//vistas para editar añadir y eliminar con cada una de las entidades
 		//un dao para cada entidad y un controller para cada entidad 
 		//vistas dos vistas por cada entidad formulario y listas
-
+		
+		
 		
 	}
 

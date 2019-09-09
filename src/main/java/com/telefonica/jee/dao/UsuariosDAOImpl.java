@@ -7,49 +7,49 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 
-import com.telefonica.jee.model.Producto;
+import com.telefonica.jee.model.Usuarios;
 import com.telefonica.jee.util.JPAUtil;
 
 
-public class UsuariosDAOImpl implements ProductoDAO {
+public class UsuariosDAOImpl implements UsuariosDAO {
 	
 	EntityManager manager = null;
 	
 	@Override
-	public List<Producto> get() {
+	public List<Usuarios> get() {
 				
 		try {
 			manager = JPAUtil.getEntityManager();
-			TypedQuery<Producto> namedQuery = manager.createNamedQuery("Product.findAll", Producto.class);
-			List<Producto> results = namedQuery.getResultList();
+			TypedQuery<Usuarios> namedQuery = manager.createNamedQuery("Usuarios.findAll", Usuarios.class);
+			List<Usuarios> results = namedQuery.getResultList();
 			manager.close();
 			return results;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return new ArrayList<Producto>();
+		return new ArrayList<Usuarios>();
 	}
 
 	@Override
-	public Producto get(int id) {
-		Producto product = null;
+	public Usuarios get(int id) {
+		Usuarios usuarios = null;
 		try {
 			manager = JPAUtil.getEntityManager();
-			product = manager.find(Producto.class, id);
+			usuarios = manager.find(Usuarios.class, id);
 			manager.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return product;
+		return usuarios;
 	}
 
 	@Override
-	public boolean save(Producto producto) {
+	public boolean save(Usuarios usuarios) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.persist(producto); 
+			manager.persist(usuarios); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;
@@ -65,9 +65,9 @@ public class UsuariosDAOImpl implements ProductoDAO {
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			Producto product = manager.find(Producto.class, id);
-			if (product != null) {
-				manager.remove(product);
+			Usuarios usuarios = manager.find(Usuarios.class, id);
+			if (usuarios != null) {
+				manager.remove(usuarios);
 				manager.getTransaction().commit(); 
 				flag = true;
 			}
@@ -79,12 +79,12 @@ public class UsuariosDAOImpl implements ProductoDAO {
 	}
 
 	@Override
-	public boolean update(Producto producto) {
+	public boolean update(Usuarios usuarios) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.merge(producto); 
+			manager.merge(usuarios); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;

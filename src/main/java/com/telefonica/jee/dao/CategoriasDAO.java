@@ -2,7 +2,8 @@ package com.telefonica.jee.dao;
 
 import java.util.List;
 
-import com.telefonica.jee.model.Producto;
+import com.telefonica.jee.model.Categorias;
+
 
 /**
  * DAO for employee operations
@@ -15,21 +16,21 @@ public interface CategoriasDAO {
 	 * It returns a list of all products
 	 * @return
 	 */
-	List<Producto> get();
+	List<Categorias> get();
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 */
-	Producto get(int id);
+	Categorias get(int id);
 	
 	/**
 	 * It saves a Product
 	 * @param product
 	 * @return true if product is correctly saved or false if there is an error
 	 */
-	boolean save(Producto product);
+	boolean save(Categorias categorias);
 	
 	/**
 	 * 
@@ -38,5 +39,5 @@ public interface CategoriasDAO {
 	 */
 	boolean delete(int id);
 	
-	boolean update(Producto product);
+	boolean update(Categorias categorias);
 }

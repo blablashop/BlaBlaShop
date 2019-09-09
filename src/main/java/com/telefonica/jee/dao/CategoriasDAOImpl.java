@@ -6,50 +6,49 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-
-import com.telefonica.jee.model.Producto;
+import com.telefonica.jee.model.Categorias;
 import com.telefonica.jee.util.JPAUtil;
 
 
-public class CategoriasDAOImpl implements ProductoDAO {
+public class CategoriasDAOImpl implements CategoriasDAO {
 	
 	EntityManager manager = null;
 	
 	@Override
-	public List<Producto> get() {
+	public List<Categorias> get() {
 				
 		try {
 			manager = JPAUtil.getEntityManager();
-			TypedQuery<Producto> namedQuery = manager.createNamedQuery("Product.findAll", Producto.class);
-			List<Producto> results = namedQuery.getResultList();
+			TypedQuery<Categorias> namedQuery = manager.createNamedQuery("Stock.findAll", Categorias.class);
+			List<Categorias> results = namedQuery.getResultList();
 			manager.close();
 			return results;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return new ArrayList<Producto>();
+		return new ArrayList<Categorias>();
 	}
 
 	@Override
-	public Producto get(int id) {
-		Producto product = null;
+	public Categorias get(int id) {
+		Categorias categorias = null;
 		try {
 			manager = JPAUtil.getEntityManager();
-			product = manager.find(Producto.class, id);
+			categorias = manager.find(Categorias.class, id);
 			manager.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return product;
+		return categorias;
 	}
 
 	@Override
-	public boolean save(Producto producto) {
+	public boolean save(Categorias categorias) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.persist(producto); 
+			manager.persist(categorias); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;
@@ -65,9 +64,9 @@ public class CategoriasDAOImpl implements ProductoDAO {
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			Producto product = manager.find(Producto.class, id);
-			if (product != null) {
-				manager.remove(product);
+			Categorias categorias = manager.find(Categorias.class, id);
+			if (categorias != null) {
+				manager.remove(categorias);
 				manager.getTransaction().commit(); 
 				flag = true;
 			}
@@ -79,12 +78,12 @@ public class CategoriasDAOImpl implements ProductoDAO {
 	}
 
 	@Override
-	public boolean update(Producto producto) {
+	public boolean update(Categorias categorias) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.merge(producto); 
+			manager.merge(categorias); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;
