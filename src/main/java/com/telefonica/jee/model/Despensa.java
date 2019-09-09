@@ -16,6 +16,10 @@ public class Despensa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	
+	@OneToOne(mappedBy = "despensa", cascade = { CascadeType.ALL })
+	private Usuarios usuarios;
+
 
 	public int getId() {
 		return id;
