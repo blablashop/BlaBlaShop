@@ -1,6 +1,7 @@
 package com.telefonica.jee.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.*;
 
@@ -16,83 +17,64 @@ public class Producto implements Serializable {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name = "street")
-	private String street;
+	@Column(name = "name")
+	private String name;
 
-	@Column(name = "postalCode")
-	private int postalCode;
+	@Column(name = "precio")
+	private BigDecimal precio;
 
-	@Column(name = "city")
-	private String city;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_categorias")
 
-	@Column(name = "country")
-	private String country;
 
 
 	
 
 	protected Producto(){
-		super();
-//		int id, 
-//		this.id = id;
-		this.street = street;
-		this.postalCode = postalCode;
-		this.city = city;
-		this.country = country;
-		}
+		
 
-	public int getIddirection() {
+	}
+
+
+	public int getId() {
 		return id;
 	}
 
-	public void setIddirection(int iddirection) {
-		this.id = iddirection;
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public String getStreet() {
-		return street;
+
+	public String getName() {
+		return name;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getPostalCode() {
-		return postalCode;
+
+	public BigDecimal getPrecio() {
+		return precio;
 	}
 
-	public void setPostalCode(int postalCode) {
-		this.postalCode = postalCode;
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
 	}
 
-	public String getCity() {
-		return city;
-	}
 
-	public void setCity(String city) {
-		this.city = city;
-	}
 
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", street=" + street + ", postalCode=" + postalCode + ", city=" + city
-				+ ", country=" + country + "]";
+		return "Producto [id=" + id + ", name=" + name + ", precio=" + precio + "]";
 	}
-
-	//A ver si esta vaina funcionaaaaaaaa
-	//putabasur
 
 }
