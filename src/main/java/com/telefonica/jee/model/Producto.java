@@ -31,7 +31,7 @@ public class Producto implements Serializable {
 
 	
 
-	protected Producto(){
+	public Producto(){
 		
 
 	}
