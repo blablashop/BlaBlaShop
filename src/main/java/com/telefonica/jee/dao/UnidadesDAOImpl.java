@@ -5,51 +5,49 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
-
-import com.telefonica.jee.model.Producto;
+import com.telefonica.jee.model.Unidades;
 import com.telefonica.jee.util.JPAUtil;
 
 
-public class UnidadesDAOImpl implements ProductoDAO {
+public class UnidadesDAOImpl implements UnidadesDAO {
 	
 	EntityManager manager = null;
 	
 	@Override
-	public List<Producto> get() {
+	public List<Unidades> get() {
 				
 		try {
 			manager = JPAUtil.getEntityManager();
-			TypedQuery<Producto> namedQuery = manager.createNamedQuery("Product.findAll", Producto.class);
-			List<Producto> results = namedQuery.getResultList();
+			TypedQuery<Unidades> namedQuery = manager.createNamedQuery("Unidades.findAll", Unidades.class);
+			List<Unidades> results = namedQuery.getResultList();
 			manager.close();
 			return results;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return new ArrayList<Producto>();
+		return new ArrayList<Unidades>();
 	}
 
 	@Override
-	public Producto get(int id) {
-		Producto product = null;
+	public Unidades get(int id) {
+		Unidades unidades = null;
 		try {
 			manager = JPAUtil.getEntityManager();
-			product = manager.find(Producto.class, id);
+			unidades = manager.find(Unidades.class, id);
 			manager.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return product;
+		return unidades;
 	}
 
 	@Override
-	public boolean save(Producto producto) {
+	public boolean save(Unidades unidades) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.persist(producto); 
+			manager.persist(unidades); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;
@@ -65,9 +63,9 @@ public class UnidadesDAOImpl implements ProductoDAO {
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			Producto product = manager.find(Producto.class, id);
-			if (product != null) {
-				manager.remove(product);
+			Unidades unidades = manager.find(Unidades.class, id);
+			if (unidades!= null) {
+				manager.remove(unidades);
 				manager.getTransaction().commit(); 
 				flag = true;
 			}
@@ -79,12 +77,12 @@ public class UnidadesDAOImpl implements ProductoDAO {
 	}
 
 	@Override
-	public boolean update(Producto producto) {
+	public boolean update(Unidades unidades) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.merge(producto); 
+			manager.merge(unidades); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;

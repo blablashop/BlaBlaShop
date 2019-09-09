@@ -6,50 +6,50 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import com.telefonica.jee.model.Despensa;
 
-import com.telefonica.jee.model.Producto;
 import com.telefonica.jee.util.JPAUtil;
 
 
-public class DespensaDAOImpl implements ProductoDAO {
+public class DespensaDAOImpl implements DespensaDAO {
 	
 	EntityManager manager = null;
 	
 	@Override
-	public List<Producto> get() {
+	public List<Despensa> get() {
 				
 		try {
 			manager = JPAUtil.getEntityManager();
-			TypedQuery<Producto> namedQuery = manager.createNamedQuery("Product.findAll", Producto.class);
-			List<Producto> results = namedQuery.getResultList();
+			TypedQuery<Despensa> namedQuery = manager.createNamedQuery("Despensa.findAll", Despensa.class);
+			List<Despensa> results = namedQuery.getResultList();
 			manager.close();
 			return results;
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return new ArrayList<Producto>();
+		return new ArrayList<Despensa>();
 	}
 
 	@Override
-	public Producto get(int id) {
-		Producto product = null;
+	public Despensa get(int id) {
+		Despensa despensa = null;
 		try {
 			manager = JPAUtil.getEntityManager();
-			product = manager.find(Producto.class, id);
+			despensa = manager.find(Despensa.class, id);
 			manager.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		return product;
+		return despensa;
 	}
 
 	@Override
-	public boolean save(Producto producto) {
+	public boolean save(Despensa despensa) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.persist(producto); 
+			manager.persist(despensa); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;
@@ -65,9 +65,9 @@ public class DespensaDAOImpl implements ProductoDAO {
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			Producto product = manager.find(Producto.class, id);
-			if (product != null) {
-				manager.remove(product);
+			Despensa despensa= manager.find(Despensa.class, id);
+			if (despensa != null) {
+				manager.remove(despensa);
 				manager.getTransaction().commit(); 
 				flag = true;
 			}
@@ -79,12 +79,12 @@ public class DespensaDAOImpl implements ProductoDAO {
 	}
 
 	@Override
-	public boolean update(Producto producto) {
+	public boolean update(Despensa despensa) {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
 			manager.getTransaction().begin();   
-			manager.merge(producto); 
+			manager.merge(despensa); 
 			manager.getTransaction().commit(); 
 			manager.close();
 			flag = true;
@@ -94,5 +94,5 @@ public class DespensaDAOImpl implements ProductoDAO {
 		return flag;
 	}
 
-
+	
 }

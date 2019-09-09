@@ -2,7 +2,7 @@ package com.telefonica.jee.dao;
 
 import java.util.List;
 
-import com.telefonica.jee.model.Producto;
+import com.telefonica.jee.model.Unidades;
 
 /**
  * DAO for employee operations
@@ -15,21 +15,21 @@ public interface UnidadesDAO {
 	 * It returns a list of all products
 	 * @return
 	 */
-	List<Producto> get();
+	List<Unidades> get();
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 */
-	Producto get(int id);
+	Unidades get(int id);
 	
 	/**
 	 * It saves a Product
 	 * @param product
 	 * @return true if product is correctly saved or false if there is an error
 	 */
-	boolean save(Producto product);
+	boolean save(Unidades unidades);
 	
 	/**
 	 * 
@@ -38,5 +38,5 @@ public interface UnidadesDAO {
 	 */
 	boolean delete(int id);
 	
-	boolean update(Producto product);
+	boolean update(Unidades unidades);
 }
