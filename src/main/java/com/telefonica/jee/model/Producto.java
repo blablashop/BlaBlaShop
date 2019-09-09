@@ -5,8 +5,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "direction")
-@NamedQuery(name = "direction.findAll", query = "SELECT d FROM Direction d")
+@Table(name = "producto")
+@NamedQuery(name = "Producto.findAll", query = "SELECT d FROM Producto d")
 
 public class Producto implements Serializable {
 	private static final long serialVersionUID = 1L;
