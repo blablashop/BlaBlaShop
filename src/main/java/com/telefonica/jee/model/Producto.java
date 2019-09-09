@@ -92,6 +92,6 @@ public class Producto implements Serializable {
 				+ ", country=" + country + "]";
 	}
 
-	
+	//A ver si esta vaina funciona
 
 }
