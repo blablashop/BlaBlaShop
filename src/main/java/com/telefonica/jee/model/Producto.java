@@ -93,7 +93,6 @@ public class Producto implements Serializable {
 	}
 
 	//A ver si esta vaina funcionaaaaaaaa
-	//putabasura
-	//a ver si saleeeeeeee
+	//putabasur
 
 }
