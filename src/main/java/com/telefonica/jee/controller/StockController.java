@@ -1,10 +1,17 @@
 package com.telefonica.jee.controller;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
-import com.telefonica.jee.dao.*;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.telefonica.jee.dao.StockDAO;
+import com.telefonica.jee.dao.StockDAOImpl;
 import com.telefonica.jee.model.Stock;
 
 
@@ -80,7 +87,7 @@ public class StockController extends HttpServlet {
 		
 		//List<Manufacturer> theListM = manufacturerDAO.get();
 		
-		request.getSession().setAttribute("listC", theListC);
+		//request.getSession().setAttribute("listC", theListC);
 		
 		List<Stock> theList = stockDAO.get();
 		
@@ -96,7 +103,7 @@ public class StockController extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		Stock stock = new Stock();
-		stock.setName(request.getParameter("name"));
+		//stock.setName(request.getParameter("name"));
 		
 		
 		
@@ -106,7 +113,7 @@ public class StockController extends HttpServlet {
 				request.setAttribute("NOTIFICATION", "Stock Saved Successfully!");
 			}	
 		}else {	
-			stock.setId(Integer.parseInt(id));
+			//stock.setId(Integer.parseInt(id));
 			if(stockDAO.update(stock)) {
 				request.setAttribute("NOTIFICATION", "Stock Updated Successfully!");
 			}	
