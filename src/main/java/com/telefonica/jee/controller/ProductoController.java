@@ -17,7 +17,7 @@ public class ProductoController extends HttpServlet {
 	ProductoDAO productoDAO = null;
 	//ManufacturerDAO manufacturerDAO = null;
 	
-	public ProductController() {
+	public ProductoController() {
 		productoDAO = new ProductoDAOImpl();
 		//manufacturerDAO = new ManufacturerDAOImpl();
 	}
@@ -33,26 +33,26 @@ public class ProductoController extends HttpServlet {
 		switch(action) {
 			
 			case "LIST":
-				listProduct(request, response);
+				listProducto(request, response);
 				break;
 				
 			case "EDIT":
-				getSingleProduct(request, response);
+				getSingleProducto(request, response);
 				break;
 				
 			case "DELETE":
-				deleteProduct(request, response);
+				deleteProducto(request, response);
 				break;
 				
 			default:
-				listProduct(request, response);
+				listProducto(request, response);
 				break;
 				
 		}
 		
 	}
 
-	private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void deleteProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
 	
@@ -60,16 +60,16 @@ public class ProductoController extends HttpServlet {
 			request.setAttribute("NOTIFICATION", "Product Deleted Successfully!");
 		}
 		
-		listProduct(request, response);
+		listProducto(request, response);
 	}
 
-	private void getSingleProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	private void getSingleProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		String id = request.getParameter("id");
 		
-		Producto theProduct = productoDAO.get(Integer.parseInt(id));
+		Producto theProducto = productoDAO.get(Integer.parseInt(id));
 		
-		request.setAttribute("product", theProduct);
+		request.setAttribute("producto", theProducto);
 		
 		dispatcher = request.getRequestDispatcher("/views/producto-form.jsp");
 		
@@ -86,7 +86,7 @@ public class ProductoController extends HttpServlet {
 		
 		request.setAttribute("list", theList);
 
-		dispatcher = request.getRequestDispatcher("/views/product-list.jsp");
+		dispatcher = request.getRequestDispatcher("/views/producto-list.jsp");
 		
 		dispatcher.forward(request, response);
 	}
