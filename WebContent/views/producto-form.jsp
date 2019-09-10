@@ -28,8 +28,16 @@
 				
 				
 					<input type="hidden" name="id" value="${producto.id}"/>
+				
 					
-
+					<div class="form-group col-md-15">
+						<select id="inputState" class="form-control" name="categorias" required>
+							<option selected disabled value="">Seleccione Categorias</option>
+							<c:forEach items="${listC}" var="categorias"> 
+							<option value="${categorias.id}">${categorias.name}</option>
+							</c:forEach>
+						</select>
+					</div>
 				
 					<button type="submit" class="btn btn-primary">Save</button>
 				</form>
