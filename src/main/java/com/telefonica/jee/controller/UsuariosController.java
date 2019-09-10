@@ -6,7 +6,7 @@ import java.util.List;
 import com.telefonica.jee.dao.*;
 
 import com.telefonica.jee.model.Usuarios;
-import javax.servlet.http.HttpServlet;
+
 
 @WebServlet("/UsuariosController")
 public class UsuariosController extends HttpServlet {
@@ -97,7 +97,7 @@ public class UsuariosController extends HttpServlet {
 		
 		Usuarios usuarios = new Usuarios();
 		usuarios.setName(request.getParameter("name"));
-		usuarios.setPrecio(new BigDecimal (request.getParameter("price")));
+		
 		
 		
 		if(id.isEmpty() || id == null) {

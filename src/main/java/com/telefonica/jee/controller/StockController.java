@@ -6,7 +6,7 @@ import java.util.List;
 import com.telefonica.jee.dao.*;
 
 import com.telefonica.jee.model.Stock;
-import javax.servlet.http.HttpServlet;
+
 
 @WebServlet("/StockController")
 public class StockController extends HttpServlet {
@@ -97,7 +97,7 @@ public class StockController extends HttpServlet {
 		
 		Stock stock = new Stock();
 		stock.setName(request.getParameter("name"));
-		stock.setPrecio(new BigDecimal (request.getParameter("price")));
+		
 		
 		
 		if(id.isEmpty() || id == null) {

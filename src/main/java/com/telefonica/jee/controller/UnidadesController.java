@@ -6,7 +6,7 @@ import java.util.List;
 import com.telefonica.jee.dao.*;
 
 import com.telefonica.jee.model.Unidades;
-import javax.servlet.http.HttpServlet;
+
 
 @WebServlet("/UnidadesController")
 public class UnidadesController extends HttpServlet {
@@ -97,7 +97,7 @@ public class UnidadesController extends HttpServlet {
 		
 		Unidades unidades = new Unidades();
 		unidades.setName(request.getParameter("name"));
-		unidades.setPrecio(new BigDecimal (request.getParameter("price")));
+
 		
 		
 		if(id.isEmpty() || id == null) {

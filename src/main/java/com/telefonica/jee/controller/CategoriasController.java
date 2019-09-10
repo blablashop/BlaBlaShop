@@ -6,7 +6,7 @@ import java.util.List;
 import com.telefonica.jee.dao.*;
 
 import com.telefonica.jee.model.Categorias;
-import javax.servlet.http.HttpServlet;
+
 
 @WebServlet("/CategoriasController")
 public class CategoriasController extends HttpServlet {
@@ -97,7 +97,7 @@ public class CategoriasController extends HttpServlet {
 		
 		Categorias categorias = new Categorias();
 		categorias.setName(request.getParameter("name"));
-		categorias.setPrecio(new BigDecimal (request.getParameter("price")));
+		
 		
 		
 		if(id.isEmpty() || id == null) {
@@ -106,7 +106,7 @@ public class CategoriasController extends HttpServlet {
 				request.setAttribute("NOTIFICATION", "Categorias Saved Successfully!");
 			}	
 		}else {	
-			categorias.setId(Integer.parseInt(id));
+			((Object) categorias).setId(id);
 			if(categoriasDAO.update(categorias)) {
 				request.setAttribute("NOTIFICATION", "Categorias Updated Successfully!");
 			}	

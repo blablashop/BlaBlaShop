@@ -6,7 +6,7 @@ import java.util.List;
 import com.telefonica.jee.dao.*;
 
 import com.telefonica.jee.model.Despensa;
-import javax.servlet.http.HttpServlet;
+
 
 @WebServlet("/DespensaController")
 public class DespensaController extends HttpServlet {
@@ -97,7 +97,7 @@ public class DespensaController extends HttpServlet {
 		
 		Despensa despensa = new Despensa();
 		despensa.setName(request.getParameter("name"));
-		despensa.setPrecio(new BigDecimal (request.getParameter("price")));
+		
 		
 		
 		if(id.isEmpty() || id == null) {
