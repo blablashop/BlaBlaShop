@@ -31,7 +31,7 @@ public class Main {
 		//vistas para editar añadir y eliminar con cada una de las entidades
 		//vistas dos vistas por cada entidad formulario y listas
 		
-		
+		//pruebaa
 		
 	}
 
