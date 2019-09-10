@@ -70,7 +70,7 @@ public class CategoriasController extends HttpServlet {
 		listCategorias(request, response);
 	}
 
-	private void getSingleProducto(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	private void getSingleCategorias(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		String id = request.getParameter("id");
 		
