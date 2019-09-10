@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Product List</title>
+    <title>Producto List</title>
 </head>
 <body>
 	
 	<div class = "container">
 		
-		<h1>Product List</h1>
+		<h1>Producto List</h1>
 		<hr/>
 		
 		<div class="alert alert-info" role="alert">
@@ -24,26 +24,23 @@
 		</div>
 		
 		<p>
-			<button class = "btn btn-primary" onclick="window.location.href = 'views/product-form.jsp'">Add Product</button>
+			<button class = "btn btn-primary" onclick="window.location.href = 'views/producto-form.jsp'">Add Producto</button>
 		</p>
 	
 		<table class = "table table-striped table-bordered table-hover">
 			
 			<tr class = "thead-light">
 				<th>Name</th>
-				<th>Price</th>
-				<th>Quantity</th>
-				<th>Manufacturer</th>
+				<th>Precio</th>
 				<th>Actions</th>
 			</tr>
 			
-			<c:forEach items="${list}" var="product">
+			<c:forEach items="${list}" var="producto">
 			
 				<tr>
 					<td>${product.name}</td>
-					<td>${product.price}€</td>
-					<td>${product.quantity}</td>
-					<td>${product.manufacturer.name}</td>
+					<td>${product.precio}€</td>
+				
 					<td> 
 				
 				

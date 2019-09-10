@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <title>Product List</title>
+    <title>Stock List</title>
 </head>
 <body>
 	
 	<div class = "container">
 		
-		<h1>Product List</h1>
+		<h1>Stock List</h1>
 		<hr/>
 		
 		<div class="alert alert-info" role="alert">
@@ -24,32 +24,30 @@
 		</div>
 		
 		<p>
-			<button class = "btn btn-primary" onclick="window.location.href = 'views/product-form.jsp'">Add Product</button>
+			<button class = "btn btn-primary" onclick="window.location.href = 'views/stock-form.jsp'">Add stock</button>
 		</p>
 	
 		<table class = "table table-striped table-bordered table-hover">
 			
 			<tr class = "thead-light">
-				<th>Name</th>
-				<th>Price</th>
-				<th>Quantity</th>
-				<th>Manufacturer</th>
+				<th>Cantidad</th>
+				<th>minimo</th>
+	
 				<th>Actions</th>
 			</tr>
 			
 			<c:forEach items="${list}" var="product">
 			
 				<tr>
-					<td>${product.name}</td>
-					<td>${product.price}€</td>
-					<td>${product.quantity}</td>
-					<td>${product.manufacturer.name}</td>
+					<td>${product.cantidad}</td>
+					<td>${product.minimo}€</td>
+
 					<td> 
 				
 				
-						<a href = "${pageContext.request.contextPath}/ProductoController?action=EDIT&id=${producto.id}"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href = "${pageContext.request.contextPath}/StockController?action=EDIT&id=${producto.id}"><span class="glyphicon glyphicon-pencil"></span></a>
 				   		| 
-						<a href = "${pageContext.request.contextPath}/ProductoController?action=DELETE&id=${producto.id}"><span class="glyphicon glyphicon-trash"></span></a> 
+						<a href = "${pageContext.request.contextPath}/StockController?action=DELETE&id=${producto.id}"><span class="glyphicon glyphicon-trash"></span></a> 
 					</td>
 				</tr>
 				
