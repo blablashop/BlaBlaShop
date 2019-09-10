@@ -1,10 +1,17 @@
 package com.telefonica.jee.controller;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
-import com.telefonica.jee.dao.*;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.telefonica.jee.dao.CategoriasDAO;
+import com.telefonica.jee.dao.CategoriasDAOImpl;
 import com.telefonica.jee.model.Categorias;
 
 
@@ -106,7 +113,7 @@ public class CategoriasController extends HttpServlet {
 				request.setAttribute("NOTIFICATION", "Categorias Saved Successfully!");
 			}	
 		}else {	
-			((Object) categorias).setId(id);
+			//((Object) categorias).setId(id);
 			if(categoriasDAO.update(categorias)) {
 				request.setAttribute("NOTIFICATION", "Categorias Updated Successfully!");
 			}	
