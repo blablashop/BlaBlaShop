@@ -19,7 +19,7 @@
 		role="navigaiton">
 		<div class="container">
 		<div class= "navbar-text pull-left">
-		<p>© 2019 BlaBlaShop 2</p>
+		<p>© 2019 BlaBlaShop</p>
 		<img class="img-rounded-responsive" src="BlaBlaShop.jpg" alt="BlaBlaShop-logo" width="460" height="345">
 		</div>
 		</div>
