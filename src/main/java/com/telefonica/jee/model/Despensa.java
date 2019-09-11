@@ -20,7 +20,8 @@ public class Despensa implements Serializable {
 	@OneToOne(mappedBy = "despensa", cascade = { CascadeType.ALL })
 	private Usuarios usuarios;
 	
-	@OneToOne(mappedBy = "despensa", cascade = { CascadeType.ALL })
+	@OneToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "id_stock")
 	private Stock stock;
 
 
