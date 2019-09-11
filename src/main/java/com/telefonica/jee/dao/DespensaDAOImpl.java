@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.telefonica.jee.model.Despensa;
-
 import com.telefonica.jee.util.JPAUtil;
 
 
