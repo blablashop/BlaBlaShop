@@ -1,10 +1,17 @@
 package com.telefonica.jee.controller;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.List;
-import com.telefonica.jee.dao.*;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.telefonica.jee.dao.DespensaDAO;
+import com.telefonica.jee.dao.DespensaDAOImpl;
 import com.telefonica.jee.model.Despensa;
 
 
@@ -37,7 +44,7 @@ public class DespensaController extends HttpServlet {
 				break;
 				
 			case "EDIT":
-				getSingleDespensa(request, response);
+				//getSingleDespensa(request, response);
 				break;
 				
 			case "DELETE":
@@ -80,7 +87,7 @@ public class DespensaController extends HttpServlet {
 		
 		//List<Manufacturer> theListM = manufacturerDAO.get();
 		
-		request.getSession().setAttribute("listC", theListC);
+		//request.getSession().setAttribute("listC", theListC);
 		
 		List<Despensa> theList = despensaDAO.get();
 		
@@ -96,7 +103,7 @@ public class DespensaController extends HttpServlet {
 		String id = request.getParameter("id");
 		
 		Despensa despensa = new Despensa();
-		despensa.setName(request.getParameter("name"));
+		//despensa.setName(request.getParameter("name"));
 		
 		
 		

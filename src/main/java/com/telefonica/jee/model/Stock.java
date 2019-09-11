@@ -16,6 +16,7 @@ public class Stock implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	
 
 	@Column(name = "cantidad")
 	private int cantidad;
@@ -23,4 +24,6 @@ public class Stock implements Serializable {
 	@Column(name="minimo")
 	private int minimo;
 
+	@OneToOne(mappedBy = "stock",cascade = { CascadeType.ALL })
+	private Despensa despensa;
 }

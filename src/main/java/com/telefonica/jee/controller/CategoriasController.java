@@ -87,7 +87,7 @@ public class CategoriasController extends HttpServlet {
 		
 		//List<Manufacturer> theListM = manufacturerDAO.get();
 		
-		request.getSession().setAttribute("listC", theListC);
+		//request.getSession().setAttribute("listC", theListC);
 		
 		List<Categorias> theList = categoriasDAO.get();
 		

@@ -3,10 +3,17 @@ package com.telefonica.jee.controller;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
-import com.telefonica.jee.dao.*;
 
-import com.telefonica.jee.model.Producto;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.telefonica.jee.dao.ProductoDAO;
+import com.telefonica.jee.dao.ProductoDAOImpl;
+import com.telefonica.jee.model.Producto;
 
 @WebServlet("/ProductoController")
 public class ProductoController extends HttpServlet {
@@ -80,7 +87,7 @@ public class ProductoController extends HttpServlet {
 		
 		//List<Manufacturer> theListM = manufacturerDAO.get();
 		
-		request.getSession().setAttribute("listC", theListC);
+		//request.getSession().setAttribute("listC", theListC);
 		
 		List<Producto> theList = productoDAO.get();
 		
@@ -111,7 +118,7 @@ public class ProductoController extends HttpServlet {
 				request.setAttribute("NOTIFICATION", "Product Updated Successfully!");
 			}	
 		}
-		listProduct(request, response);
+		listProducto(request, response);
 	}
 
 }
