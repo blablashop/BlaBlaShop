@@ -8,21 +8,20 @@ import javax.persistence.TypedQuery;
 import com.telefonica.jee.model.Unidades;
 import com.telefonica.jee.util.JPAUtil;
 
-
 public class UnidadesDAOImpl implements UnidadesDAO {
-	
+
 	EntityManager manager = null;
-	
+
 	@Override
 	public List<Unidades> get() {
-				
+
 		try {
 			manager = JPAUtil.getEntityManager();
 			TypedQuery<Unidades> namedQuery = manager.createNamedQuery("Unidades.findAll", Unidades.class);
 			List<Unidades> results = namedQuery.getResultList();
 			manager.close();
 			return results;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<Unidades>();
@@ -35,7 +34,7 @@ public class UnidadesDAOImpl implements UnidadesDAO {
 			manager = JPAUtil.getEntityManager();
 			unidades = manager.find(Unidades.class, id);
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return unidades;
@@ -46,12 +45,12 @@ public class UnidadesDAOImpl implements UnidadesDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.persist(unidades); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.persist(unidades);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return flag;
@@ -62,15 +61,15 @@ public class UnidadesDAOImpl implements UnidadesDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
+			manager.getTransaction().begin();
 			Unidades unidades = manager.find(Unidades.class, id);
-			if (unidades!= null) {
+			if (unidades != null) {
 				manager.remove(unidades);
-				manager.getTransaction().commit(); 
+				manager.getTransaction().commit();
 				flag = true;
 			}
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
@@ -81,16 +80,15 @@ public class UnidadesDAOImpl implements UnidadesDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.merge(unidades); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.merge(unidades);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
-
 
 }

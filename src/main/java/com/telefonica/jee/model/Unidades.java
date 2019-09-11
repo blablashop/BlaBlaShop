@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "unidades")
-@NamedQuery(name = "Unidades.findAll", query = "SELECT d FROM Producto d")
+@NamedQuery(name = "Unidades.findAll", query = "SELECT u FROM Unidades u")
 
 public class Unidades implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -19,6 +19,15 @@ public class Unidades implements Serializable {
 
 	@Column(name = "name")
 	private String name;
+
+	public Unidades(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public Unidades() {
+
+	}
 
 	public int getId() {
 		return id;
@@ -44,8 +53,5 @@ public class Unidades implements Serializable {
 	public String toString() {
 		return "Unidades [id=" + id + ", name=" + name + "]";
 	}
-	
+
 }
-
-
-

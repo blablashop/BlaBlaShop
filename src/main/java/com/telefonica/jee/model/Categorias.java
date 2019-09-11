@@ -22,7 +22,7 @@ public class Categorias implements Serializable {
 	private String name;
 
 	@OneToMany(mappedBy = "categorias", cascade = CascadeType.ALL)
-	List<Producto> producto = new ArrayList <> ();
+	List<Producto> producto = new ArrayList<>();
 
 	public Categorias(int idcategorias, String name, List<Producto> producto) {
 		this.idcategorias = idcategorias;
@@ -31,7 +31,7 @@ public class Categorias implements Serializable {
 	}
 
 	public Categorias() {
-		
+
 	}
 
 	public int getIdcategorias() {
@@ -67,5 +67,4 @@ public class Categorias implements Serializable {
 		return "Categorias [idcategorias=" + idcategorias + ", name=" + name + ", producto=" + producto + "]";
 	}
 
-	
 }

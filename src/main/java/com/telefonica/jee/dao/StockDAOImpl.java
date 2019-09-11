@@ -6,25 +6,23 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-
 import com.telefonica.jee.model.Stock;
 import com.telefonica.jee.util.JPAUtil;
 
-
 public class StockDAOImpl implements StockDAO {
-	
+
 	EntityManager manager = null;
-	
+
 	@Override
 	public List<Stock> get() {
-				
+
 		try {
 			manager = JPAUtil.getEntityManager();
 			TypedQuery<Stock> namedQuery = manager.createNamedQuery("Stock.findAll", Stock.class);
 			List<Stock> results = namedQuery.getResultList();
 			manager.close();
 			return results;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<Stock>();
@@ -37,7 +35,7 @@ public class StockDAOImpl implements StockDAO {
 			manager = JPAUtil.getEntityManager();
 			stock = manager.find(Stock.class, id);
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return stock;
@@ -48,12 +46,12 @@ public class StockDAOImpl implements StockDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.persist(stock); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.persist(stock);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return flag;
@@ -64,15 +62,15 @@ public class StockDAOImpl implements StockDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
+			manager.getTransaction().begin();
 			Stock stock = manager.find(Stock.class, id);
 			if (stock != null) {
 				manager.remove(stock);
-				manager.getTransaction().commit(); 
+				manager.getTransaction().commit();
 				flag = true;
 			}
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
@@ -83,16 +81,15 @@ public class StockDAOImpl implements StockDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.merge(stock); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.merge(stock);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
-
 
 }
