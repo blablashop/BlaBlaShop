@@ -6,25 +6,23 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-
 import com.telefonica.jee.model.Usuarios;
 import com.telefonica.jee.util.JPAUtil;
 
-
 public class UsuariosDAOImpl implements UsuariosDAO {
-	
+
 	EntityManager manager = null;
-	
+
 	@Override
 	public List<Usuarios> get() {
-				
+
 		try {
 			manager = JPAUtil.getEntityManager();
 			TypedQuery<Usuarios> namedQuery = manager.createNamedQuery("Usuarios.findAll", Usuarios.class);
 			List<Usuarios> results = namedQuery.getResultList();
 			manager.close();
 			return results;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<Usuarios>();
@@ -37,7 +35,7 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 			manager = JPAUtil.getEntityManager();
 			usuarios = manager.find(Usuarios.class, id);
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return usuarios;
@@ -48,12 +46,12 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.persist(usuarios); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.persist(usuarios);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return flag;
@@ -64,15 +62,15 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
+			manager.getTransaction().begin();
 			Usuarios usuarios = manager.find(Usuarios.class, id);
 			if (usuarios != null) {
 				manager.remove(usuarios);
-				manager.getTransaction().commit(); 
+				manager.getTransaction().commit();
 				flag = true;
 			}
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
@@ -83,16 +81,15 @@ public class UsuariosDAOImpl implements UsuariosDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.merge(usuarios); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.merge(usuarios);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
-
 
 }

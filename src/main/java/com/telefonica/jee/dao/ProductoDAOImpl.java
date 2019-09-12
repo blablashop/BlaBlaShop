@@ -6,25 +6,23 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-
 import com.telefonica.jee.model.Producto;
 import com.telefonica.jee.util.JPAUtil;
 
-
 public class ProductoDAOImpl implements ProductoDAO {
-	
+
 	EntityManager manager = null;
-	
+
 	@Override
 	public List<Producto> get() {
-				
+
 		try {
 			manager = JPAUtil.getEntityManager();
 			TypedQuery<Producto> namedQuery = manager.createNamedQuery("Product.findAll", Producto.class);
 			List<Producto> results = namedQuery.getResultList();
 			manager.close();
 			return results;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<Producto>();
@@ -37,7 +35,7 @@ public class ProductoDAOImpl implements ProductoDAO {
 			manager = JPAUtil.getEntityManager();
 			product = manager.find(Producto.class, id);
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return product;
@@ -48,12 +46,12 @@ public class ProductoDAOImpl implements ProductoDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.persist(producto); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.persist(producto);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return flag;
@@ -64,15 +62,15 @@ public class ProductoDAOImpl implements ProductoDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
+			manager.getTransaction().begin();
 			Producto product = manager.find(Producto.class, id);
 			if (product != null) {
 				manager.remove(product);
-				manager.getTransaction().commit(); 
+				manager.getTransaction().commit();
 				flag = true;
 			}
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
@@ -83,16 +81,15 @@ public class ProductoDAOImpl implements ProductoDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.merge(producto); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.merge(producto);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
-
 
 }

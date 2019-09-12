@@ -9,21 +9,20 @@ import javax.persistence.TypedQuery;
 import com.telefonica.jee.model.Categorias;
 import com.telefonica.jee.util.JPAUtil;
 
-
 public class CategoriasDAOImpl implements CategoriasDAO {
-	
+
 	EntityManager manager = null;
-	
+
 	@Override
 	public List<Categorias> get() {
-				
+
 		try {
 			manager = JPAUtil.getEntityManager();
 			TypedQuery<Categorias> namedQuery = manager.createNamedQuery("Stock.findAll", Categorias.class);
 			List<Categorias> results = namedQuery.getResultList();
 			manager.close();
 			return results;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<Categorias>();
@@ -36,7 +35,7 @@ public class CategoriasDAOImpl implements CategoriasDAO {
 			manager = JPAUtil.getEntityManager();
 			categorias = manager.find(Categorias.class, id);
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return categorias;
@@ -47,12 +46,12 @@ public class CategoriasDAOImpl implements CategoriasDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.persist(categorias); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.persist(categorias);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return flag;
@@ -63,15 +62,15 @@ public class CategoriasDAOImpl implements CategoriasDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
+			manager.getTransaction().begin();
 			Categorias categorias = manager.find(Categorias.class, id);
 			if (categorias != null) {
 				manager.remove(categorias);
-				manager.getTransaction().commit(); 
+				manager.getTransaction().commit();
 				flag = true;
 			}
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
@@ -82,16 +81,15 @@ public class CategoriasDAOImpl implements CategoriasDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.merge(categorias); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.merge(categorias);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
-
 
 }

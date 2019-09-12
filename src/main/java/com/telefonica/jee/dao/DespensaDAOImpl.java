@@ -7,24 +7,22 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import com.telefonica.jee.model.Despensa;
-
 import com.telefonica.jee.util.JPAUtil;
 
-
 public class DespensaDAOImpl implements DespensaDAO {
-	
+
 	EntityManager manager = null;
-	
+
 	@Override
 	public List<Despensa> get() {
-				
+
 		try {
 			manager = JPAUtil.getEntityManager();
 			TypedQuery<Despensa> namedQuery = manager.createNamedQuery("Despensa.findAll", Despensa.class);
 			List<Despensa> results = namedQuery.getResultList();
 			manager.close();
 			return results;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ArrayList<Despensa>();
@@ -37,7 +35,7 @@ public class DespensaDAOImpl implements DespensaDAO {
 			manager = JPAUtil.getEntityManager();
 			despensa = manager.find(Despensa.class, id);
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return despensa;
@@ -48,12 +46,12 @@ public class DespensaDAOImpl implements DespensaDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.persist(despensa); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.persist(despensa);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 		return flag;
@@ -64,15 +62,15 @@ public class DespensaDAOImpl implements DespensaDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			Despensa despensa= manager.find(Despensa.class, id);
+			manager.getTransaction().begin();
+			Despensa despensa = manager.find(Despensa.class, id);
 			if (despensa != null) {
 				manager.remove(despensa);
-				manager.getTransaction().commit(); 
+				manager.getTransaction().commit();
 				flag = true;
 			}
 			manager.close();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
@@ -83,16 +81,15 @@ public class DespensaDAOImpl implements DespensaDAO {
 		boolean flag = false;
 		try {
 			manager = JPAUtil.getEntityManager();
-			manager.getTransaction().begin();   
-			manager.merge(despensa); 
-			manager.getTransaction().commit(); 
+			manager.getTransaction().begin();
+			manager.merge(despensa);
+			manager.getTransaction().commit();
 			manager.close();
 			flag = true;
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return flag;
 	}
 
-	
 }
