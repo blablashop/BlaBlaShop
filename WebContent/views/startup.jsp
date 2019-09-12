@@ -156,7 +156,7 @@ button:hover {
 	padding: 16px;
 }
 
-/* The Modal (background) */
+/* The Modal (background) 3 */
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
