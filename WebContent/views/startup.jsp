@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <title>W3.CSS Template</title>
@@ -156,7 +155,7 @@ button:hover {
 	padding: 16px;
 }
 
-/* The Modal (background) 3 */
+/* The Modal (background) */
 .modal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */
@@ -216,8 +215,6 @@ hr {
 </style>
 <body>
 
-	<h2>Modal Sign up Form</h2>
-
 	<div id="id01" class="modal">
 		<span onclick="document.getElementById('id01').style.display='none'"
 			class="close" title="Close Modal">&times;</span>
@@ -269,30 +266,30 @@ hr {
 
 <!-- About Section -->
 <div class="w3-container" style="padding: 128px 16px" id="about">
-	<h3 class="w3-center">ABOUT THE COMPANY</h3>
+	<h3 class="w3-center" style="color: green">ABOUT THE COMPANY</h3>
 	<p class="w3-center w3-large">Key features of our company</p>
 	<div class="w3-row-padding w3-center" style="margin-top: 64px">
 		<div class="w3-quarter">
 			<i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-			<p class="w3-large">Responsive</p>
+			<p class="w3-large" style="color: green">Responsive</p>
 			<p>BlaBlaShop's responsive design creates flexible layouts
 				perfectly adjusted for your personal device.</p>
 		</div>
 		<div class="w3-quarter">
 			<i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-			<p class="w3-large">Passion</p>
+			<p class="w3-large" style="color: green">Passion</p>
 			<p>BlaBlaShop not only takes care of our products but also about
 				you.</p>
 		</div>
 		<div class="w3-quarter">
 			<i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-			<p class="w3-large">Design</p>
+			<p class="w3-large" style="color: green">Design</p>
 			<p>User-friendly design to dive into your daily pantry and
 				shopping list.</p>
 		</div>
 		<div class="w3-quarter">
 			<i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-			<p class="w3-large">Support</p>
+			<p class="w3-large" style="color: green">Support</p>
 			<p>In order to meet your expectations BlaBlaShop enables you to
 				experience real-time feedback and client support.</p>
 		</div>
@@ -303,20 +300,20 @@ hr {
 <div class="w3-container w3-light-grey" style="padding: 128px 16px">
 	<div class="w3-row-padding">
 		<div class="w3-col m6">
-			<h3>Welcome to BlaBlaShop</h3>
+			<h3 style="color: green">Welcome to BlaBlaShop</h3>
 			<p>
 				Make your shopping list much more easier! <br>BlaBlashop allows
 				you to track your pantry and other household products. Moreover, you
 				can pick a wide variety of them!
 			</p>
 			<p>
-				<a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i>
+				<a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i>
 					Select any category</a>
 			</p>
 		</div>
 		<div class="w3-col m6">
 			<img class="w3-image w3-round-large"
-				src="/pictures/logo.jpg" alt="BlaBlaShop logo2" width="700"
+				src="/pictures/logo.jpg" alt="BlaBlaShop logo" width="700"
 				height="394">
 		</div>
 	</div>
@@ -324,61 +321,46 @@ hr {
 
 <!-- Team Section -->
 <div class="w3-container" style="padding: 128px 16px" id="team">
-	<h3 class="w3-center">THE TEAM</h3>
-	<p class="w3-center w3-large">The ones who runs this company</p>
-	<div class="w3-row-padding w3-grayscale" style="margin-top: 64px">
-		<div class="w3-col l3 m6 w3-margin-bottom">
-			<div class="w3-card">
-				<img src=""/pictures/victor.jpg" alt="Victor" style="width: 100%">
-				<div class="w3-container">
-					<h3>Víctor Bernardos Gutierrez</h3>
-					<p class="w3-opacity">Junior JEE Programmer</p>
-					<p>.</p>
-					<p>
-						<button class="w3-button w3-light-grey w3-block">
-							<i class="fa fa-envelope"></i> Contact
-						</button>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="w3-col l3 m6 w3-margin-bottom">
-			<div class="w3-card">
-				<img src=""/pictures/alba.jpg" alt="Alba" style="width: 100%">
-				<div class="w3-container">
-					<h3>Alba Paramio García</h3>
-					<p class="w3-opacity">Junior JEE Programmer</p>
-					<p>.</p>
-					<p>
-						<button class="w3-button w3-light-grey w3-block">
-							<i class="fa fa-envelope"></i> Contact
-						</button>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="w3-col l3 m6 w3-margin-bottom">
-			<div class="w3-card">
-				<img src=""/pictures/logo.jpg" alt="César" style="width: 100%">
-				<div class="w3-container">
-					<h3>César González Arias</h3>
-					<p class="w3-opacity">Junior JEE Programmer</p>
-					<p>.</p>
-					<p>
-						<button class="w3-button w3-light-grey w3-block">
-							<i class="fa fa-envelope"></i> Contact
-						</button>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+	<h3 class="w3-center" style="color: green">THE TEAM</h3>
+	<p class="w3-center w3-large">The ones who run BlaBlaShop</p>
+	<div class="w3-row-padding w3-grayscale" style="margin-top:64px">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src= url(https://ibb.co/qMRFgGL), alt="Victor" style="width:100%">
+        <div class="w3-container">
+          <h3>Victor</h3>
+          <p class="w3-opacity" style="color: green">JEE developer</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="https://pixabay.com/images/id-3024488/" alt="Alba" style="width:100%">
+        <div class="w3-container">
+          <h3>Alba</h3>
+          <p class="w3-opacity" style="color: green">JEE developer</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-card">
+        <img src="https://www.youtube.com/embed/tgbNymZ7vqY" alt="César" style="width:100%">
+        <div class="w3-container">
+          <h3>César</h3>
+          <p class="w3-opacity" style="color: green">JEE developer</p>
+          <p><button class="w3-button w3-light-grey w3-block"><i class="fa fa-envelope"></i> Contact</button></p>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
 
 <!-- Work Section -->
 <div class="w3-container" style="padding: 128px 16px" id="work">
-	<h3 class="w3-center">YOUR PERSONAL PANTRY</h3>
-	<p class="w3-center w3-large">What BlaBlaShop offers you</p>
+	<h3 class="w3-center" style="color: green">YOUR PERSONAL PANTRY</h3>
+	<p class="w3-center w3-large" style="color: green">What BlaBlaShop offers you</p>
 
 	<div class="w3-row-padding" style="margin-top: 64px">
 		<div class="w3-col l3 m6">
@@ -435,19 +417,19 @@ hr {
 <!-- Contact Section -->
 <div class="w3-container w3-light-grey" style="padding: 128px 16px"
 	id="contact">
-	<h3 class="w3-center">CONTACT</h3>
+	<h3 class="w3-center" style="color: green">CONTACT</h3>
 	<p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
 	<div style="margin-top: 48px">
 		<p>
-			<i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i>
+			<i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right" style="color: green"></i>
 			León, ES
 		</p>
 		<p>
-			<i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone:
+			<i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right" style="color: green"></i> Phone:
 			+34 987000000
 		</p>
 		<p>
-			<i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i>
+			<i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right" style="color: green"> </i>
 			Email: info@blablashop.com
 		</p>
 		<br>
@@ -523,4 +505,3 @@ hr {
 
 </body>
 </html>
-
