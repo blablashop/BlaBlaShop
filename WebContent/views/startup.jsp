@@ -316,7 +316,7 @@ hr {
 		</div>
 		<div class="w3-col m6">
 			<img class="w3-image w3-round-large"
-				src="/pictures/logo.jpg" alt="BlaBlaShop logo" width="700"
+				src="/pictures/logo.jpg" alt="BlaBlaShop logo2" width="700"
 				height="394">
 		</div>
 	</div>
@@ -359,7 +359,7 @@ hr {
 		</div>
 		<div class="w3-col l3 m6 w3-margin-bottom">
 			<div class="w3-card">
-				<img src=""/pictures/logo.jpg.jpg" alt="César" style="width: 100%">
+				<img src=""/pictures/logo.jpg" alt="César" style="width: 100%">
 				<div class="w3-container">
 					<h3>César González Arias</h3>
 					<p class="w3-opacity">Junior JEE Programmer</p>
