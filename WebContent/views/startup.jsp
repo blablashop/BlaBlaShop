@@ -46,7 +46,7 @@ body, html {
 					class="fa fa-envelope"></i> CONTACT</a> <a href="#contact"
 					onclick="document.getElementById('id01').style.display='block'"
 					style="width: auto;" class="w3-bar-item w3-button"><i
-					class="fa fa-sign-in"></i> LOG IN </a>
+					class="fa fa-sign-in"></i> LOG IN</a>
 			</div>
 			<!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
