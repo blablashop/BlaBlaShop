@@ -24,6 +24,10 @@ public class Stock implements Serializable {
 	@Column(name = "minimo")
 	private int minimo;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_producto")
+	private Producto producto;
+
 	@OneToMany(mappedBy = "stock", cascade = CascadeType.ALL)
 	List<Despensa> despensa = new ArrayList<>();
 

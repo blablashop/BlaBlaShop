@@ -2,6 +2,8 @@ package com.telefonica.jee.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,6 +28,9 @@ public class Producto implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_categorias")
 	private Categorias categorias;
+
+	@OneToMany(mappedBy = "stock", cascade = CascadeType.ALL)
+	List<Stock> stock = new ArrayList<>();
 
 	public Producto(int id, String name, BigDecimal precio, Categorias categorias) {
 		this.id = id;
